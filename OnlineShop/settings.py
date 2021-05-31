@@ -17,6 +17,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'books',
+    'customer',
+    'cart',
+
+    'rest_framework',
+
 ]
 
 MIDDLEWARE = [
@@ -52,7 +58,7 @@ WSGI_APPLICATION = 'OnlineShop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'onlineshop_db',
+        'NAME': 'book_store_db',
         'USER': 'postgres',
         'PASSWORD': '28505',
         'HOST': 'localhost',
@@ -86,5 +92,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
+
+AUTH_USER_MODEL = 'customer.User'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
