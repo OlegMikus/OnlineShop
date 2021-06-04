@@ -17,11 +17,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'social_django',
+    'rest_framework',
+
     'books',
     'customer',
     'cart',
-
-    'rest_framework',
 
 ]
 
@@ -40,7 +41,7 @@ ROOT_URLCONF = 'OnlineShop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -105,3 +106,17 @@ STATIC_URL = '/static/'
 AUTH_USER_MODEL = 'customer.User'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+SOCIAL_AUTH_POSTGRES_JSONFIELD = True
+
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2',
+
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_URL_NAMESPACE = 'social'
+# SOCIAL_AUTH_GITHUB_KEY = str(os.getenv('SOCIAL_AUTH_GITHUB_KEY'))
+# SOCIAL_AUTH_GITHUB_SECRET = str(os.getenv('SOCIAL_AUTH_GITHUB_SECRET'))
+SOCIAL_AUTH_GITHUB_KEY = '21e19e505ada8284b83e'
+SOCIAL_AUTH_GITHUB_SECRET = 'e471e78c7117e2d350e2303c1aef3903d75fc981'
